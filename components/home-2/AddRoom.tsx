@@ -19,11 +19,16 @@ const AddRoom = () => {
     calculateTotal(updatedRooms);
   };
 
-  const handleChange = (index: number, type: string, value: number) => {
+  const handleChange = (index: number, type: 'adults' | 'children' | 'infants', value: number) => {
     const updatedRooms = [...rooms];
-    updatedRooms[index][type] = value;
-    setRooms(updatedRooms);
-    calculateTotal(updatedRooms);
+    
+    if (updatedRooms[index]) {
+      updatedRooms[index][type] = value;
+      setRooms(updatedRooms);
+      calculateTotal(updatedRooms);
+    } else {
+      console.error("Invalid index:", index);
+    }
   };
 
   const calculateTotal = (rooms: Array<{ adults: number; children: number; infants: number }>) => {
@@ -49,8 +54,8 @@ const AddRoom = () => {
       </div>
 
       {isOpen && (
-         <div className="absolute top-full left-0 z-50"> {/* Set a high z-index here */}
-    <div className="relative bg-white border rounded-lg mt-2 p-4 shadow-lg w-96 z-50">
+        <div className="absolute top-full left-0 z-50">
+          <div className="relative bg-white border rounded-lg mt-2 p-4 shadow-lg w-96 z-50">
             {rooms.map((room, index) => (
               <div key={index} className="mb-4">
                 <div className="flex items-center justify-between">
