@@ -23,11 +23,11 @@ export default function RootLayout({
   const path = usePathname();
   return (
     <>
-      <div className="py-[30px] lg:py-[60px] bg-[var(--bg-2)] px-3">
+      <div className="py-[30px] lg:py-[60px] bg-[var(--bg-2)] px-3 ">
         <div className="container">
-          <div className="grid grid-cols-12 gap-4 lg:gap-6">
-            <div className="col-span-12 lg:col-span-4 order-2 order-lg-1">
-              <div className="p-3 sm:p-4 lg:py-6 lg:px-8 bg-white rounded-2xl shadow-lg">
+          <div className="grid grid-cols-12 gap-4 lg:gap-6 mt-[100px]">
+            <div className="col-span-12 lg:col-span-4 order-2 order-lg-1 ">
+              <div className="p-3 sm:p-4 lg:py-6 lg:px-8 bg-white rounded-2xl shadow-lg ">
                 <h4 className="mb-0 text-2xl font-semibold"> Filter </h4>
                 <div className="border-t border-dashed my-6"></div>
                 <div className="flex items-center justify-between rounded-full border border-neutral-40 bg-[var(--bg-2)] px-5 py-3">

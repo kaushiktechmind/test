@@ -5,7 +5,7 @@ const page = () => {
   return (
     <div className="py-[30px] lg:py-[60px] bg-[var(--bg-1)] signup-section">
       <div className="container">
-        <div className="grid grid-cols-2 gap-4 lg:gap-8 mx-3">
+        <div className="grid grid-cols-2 gap-4 lg:gap-8 mx-3 mt-[100px]">
           <div className="col-span-2 lg:col-span-1">
             <div className="bg-white rounded-2xl p-4 md:p-6 lg:p-8">
               <form action="#">

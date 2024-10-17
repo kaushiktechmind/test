@@ -90,7 +90,7 @@ const AddRoom = () => {
                       className="w-full border rounded p-1"
                     >
                       <option value={0}></option>
-                      {[...Array(6).keys()].map((num) => (
+                      {[...Array(2).keys()].map((num) => (
                         <option key={num} value={num}>
                           {num}
                         </option>
@@ -105,7 +105,7 @@ const AddRoom = () => {
                       className="w-full border rounded p-1"
                     >
                       <option value={0}></option>
-                      {[...Array(6).keys()].map((num) => (
+                      {[...Array(2).keys()].map((num) => (
                         <option key={num} value={num}>
                           {num}
                         </option>

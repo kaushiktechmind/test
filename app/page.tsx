@@ -1,38 +1,41 @@
 "use client";
-import CommonHeader from "@/components/CommonHeader";
 import Footer from "@/components/Footer";
-import HeaderTop from "@/components/home-1/HeaderTophome1";
-import Authors from "@/components/home-1/Authors";
-import Benefit from "@/components/home-1/Benefit";
-import Calculate from "@/components/home-1/Calculate";
+import MobileMenu from "@/components/MobileMenu";
 import Category from "@/components/home-1/Category";
 import Faq from "@/components/home-1/Faq";
-import Hero from "@/components/home-1/Hero";
-import NewListing from "@/components/home-1/NewListing";
-import Property from "@/components/home-1/Property";
-import Services from "@/components/home-1/Services";
-import StartListing from "@/components/home-1/StartListing";
-import Testimonial from "@/components/home-1/Testimonial";
-import MobileMenu from "@/components/MobileMenu";
+import Agents from "@/components/home-2/Agents";
+import Counter from "@/components/home-2/Counter";
+import DiscoverLocation from "@/components/home-2/DiscoverLocation";
+import Explore from "@/components/home-2/Explore";
+import Header2 from "@/components/home-2/Header2";
+import Hero from "@/components/home-2/Hero";
+import HowItWork from "@/components/home-2/HowItWork";
+import MobileApp from "@/components/home-2/MobileApp";
+import Property from "@/components/home-2/Property";
+import Testimonial from "@/components/home-2/Testimonial";
 
-export default function Home() {
+const page = () => {
   return (
-    <main>
-      <HeaderTop />
-      <CommonHeader />
+    <>
+    
+      <Header2 />
       <MobileMenu />
-      <Hero />
-      <Category />
-      <Property />
-      <NewListing />
-      <Services />
-      <Calculate />
-      <Benefit />
-      <Authors />
-      <Testimonial />
-      <StartListing />
-      <Faq />
+      <main>
+        <Hero />
+        <Category />
+        <Property />
+        <HowItWork />
+        <DiscoverLocation />
+        <MobileApp />
+        <Explore />
+        <Counter />
+        <Testimonial />
+        <Agents />
+        <Faq />
+      </main>
       <Footer />
-    </main>
+    </>
   );
-}
+};
+
+export default page;
