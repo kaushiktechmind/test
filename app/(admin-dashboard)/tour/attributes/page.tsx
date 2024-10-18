@@ -18,7 +18,7 @@ const Page = () => {
       <div className="flex items-center justify-between flex-wrap px-3 py-5 md:p-[30px] gap-5 lg:p-[60px] bg-[var(--dark)]">
         <h2 className="h2 text-white">Tour Attributes</h2>
         <Link href="/tour/all-tour" className="btn-primary">
-          <EyeIcon className="w-5 h-5" /> View Al Tour
+          <EyeIcon className="w-5 h-5" /> View All Tour
         </Link>
       </div>
       {/* statisticts */}
@@ -110,9 +110,6 @@ const Page = () => {
                       </button>
                       <button className="text-[var(--secondary-500)]">
                         <TrashIcon className="w-5 h-5" />
-                      </button>
-                      <button>
-                        <EllipsisVerticalIcon className="w-5 h-5" />
                       </button>
                     </td>
                   </tr>

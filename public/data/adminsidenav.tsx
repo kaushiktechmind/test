@@ -14,7 +14,7 @@ export const sidenavData = [
   },
   {
     id: 2,
-    name: "Tour",
+    name: "Packages",
     icon: <i className="las la-umbrella text-2xl"></i>,
     submenus: [
       { url: "/tour/all-tour", title: "All Tours" },
@@ -23,31 +23,21 @@ export const sidenavData = [
       { url: "/tour/attributes", title: "Attributes" },
       { url: "/tour/availability", title: "Availability" },
       { url: "/tour/booking-calendar", title: "Booking Calendar" },
-      { url: "/tour/recovery", title: "Recovery" },
     ],
   },
   {
     id: 3,
-    name: "Space",
+    name: "Activities",
     icon: <i className="las la-network-wired text-2xl"></i>,
     submenus: [
       { url: "/space/all-space", title: "All Space" },
       { url: "/space/add-new-space", title: "Add New Space" },
       { url: "/space/attributes", title: "Attributes" },
       { url: "/space/availability", title: "Availability" },
-      { url: "/space/recovery", title: "Recovery" },
     ],
   },
   {
     id: 4,
-    name: "Packages",
-    icon: <i className="las la-hotel text-2xl"></i>,
-    submenus: [
-      { url: "/package/add-new-package", title: "All Packages" },
-    ],
-  },
-  {
-    id: 5,
     name: "Flight",
     icon: <i className="las la-plane-departure text-2xl"></i>,
     submenus: [
@@ -60,7 +50,7 @@ export const sidenavData = [
     ],
   },
   {
-    id: 6,
+    id: 5,
     name: "Cab",
     icon: <i className="las la-taxi text-2xl"></i>,
     submenus: [
@@ -68,11 +58,10 @@ export const sidenavData = [
       { url: "/cab/add-new-cab", title: "Add New Cab" },
       { url: "/cab/attributes", title: "Attributes" },
       { url: "/cab/availability", title: "Availablility" },
-      { url: "/cab/recovery", title: "Recovery" },
     ],
   },
   {
-    id: 7,
+    id: 6,
     name: "Boat",
     icon: <i className="las la-ship text-2xl"></i>,
     submenus: [
@@ -80,11 +69,10 @@ export const sidenavData = [
       { url: "/boat/add-new-boat", title: "Add New Boot" },
       { url: "/boat/attributes", title: "Attributes" },
       { url: "/boat/availability", title: "Availablility" },
-      { url: "/boat/recovery", title: "Recovery" },
     ],
   },
   {
-    id: 8,
+    id: 7,
     name: "Event",
     icon: <i className="las la-calendar-alt text-2xl"></i>,
     submenus: [
@@ -92,17 +80,16 @@ export const sidenavData = [
       { url: "/event/add-new-event", title: "Add New Event" },
       { url: "/event/attributes", title: "Attributes" },
       { url: "/event/availability", title: "Availablility" },
-      { url: "/event/recovery", title: "Recovery" },
     ],
   },
   {
-    id: 9,
+    id: 8,
     name: "Cancel Booking",
     icon: <i className="las la-calendar-times text-2xl"></i>,
     url: "/cancel-booking",
   },
   {
-    id: 10,
+    id: 9,
     name: "Location",
     icon: <i className="las la-map-marker-alt text-2xl"></i>,
     submenus: [
@@ -111,7 +98,7 @@ export const sidenavData = [
     ],
   },
   {
-    id: 11,
+    id: 10,
     name: "Guests",
     icon: <i className="las la-user-circle text-2xl"></i>,
     submenus: [
@@ -120,7 +107,7 @@ export const sidenavData = [
     ],
   },
   {
-    id: 12,
+    id: 11,
     name: "Agents",
     icon: <i className="las la-user-friends text-2xl"></i>,
     submenus: [
@@ -130,25 +117,25 @@ export const sidenavData = [
     ],
   },
   {
-    id: 13,
+    id: 12,
     name: "Chat",
     icon: <i className="las la-sms text-2xl"></i>,
     url: "/chat",
   },
   {
-    id: 14,
+    id: 13,
     name: "Reviews",
     icon: <i className="lar la-star text-2xl"></i>,
     url: "/reviews",
   },
   {
-    id: 15,
+    id: 14,
     name: "Coupon",
     icon: <i className="las la-ticket-alt text-2xl"></i>,
     url: "/coupon",
   },
   {
-    id: 16,
+    id: 15,
     name: "Total Earnings",
     icon: <i className="las la-hand-holding-usd text-2xl"></i>,
     submenus: [
@@ -159,7 +146,7 @@ export const sidenavData = [
     ],
   },
   {
-    id: 17,
+    id: 16,
     name: "General Settings",
     icon: <i className="las la-cog text-2xl"></i>,
     submenus: [
@@ -172,7 +159,7 @@ export const sidenavData = [
     ],
   },
   {
-    id: 18,
+    id: 17,
     name: "Payment Settings",
     icon: <i className="las la-credit-card text-2xl"></i>,
     submenus: [
@@ -183,13 +170,13 @@ export const sidenavData = [
     ],
   },
   {
-    id: 19,
+    id: 18,
     name: "Admin Settings",
     icon: <i className="las la-user-cog text-2xl"></i>,
     url: "/admin-settings",
   },
   {
-    id: 20,
+    id: 19,
     name: "Authentication",
     icon: <i className="las la-user-shield text-2xl"></i>,
     submenus: [

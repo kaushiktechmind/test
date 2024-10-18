@@ -63,13 +63,15 @@ const Page = () => {
                       <span className="flex items-center justify-center flex-wrap gap-5">
                         <span className="flex items-center gap-2">
                           <InformationCircleIcon className="w-5 h-5" />
-                          {/* <span className="block mb-0 clr-neutral-500">
+                          <span className="block mb-0 clr-neutral-500">
                             Maximum allowed file size is 9.00 MB
-                          </span> */}
+                          </span>
                         </span>
                         <span className="flex items-center gap-2">
                           <InformationCircleIcon className="w-5 h-5" />
-                         
+                          <span className="block mb-0 clr-neutral-500">
+                            Maximum 10 files are allowed
+                          </span>
                         </span>
                       </span>
                     </span>
@@ -145,9 +147,7 @@ const Page = () => {
                       <button className="text-[var(--secondary-500)]">
                         <TrashIcon className="w-5 h-5" />
                       </button>
-                      {/* <button>
-                        <EllipsisVerticalIcon className="w-5 h-5" />
-                      </button> */}
+                     
                     </td>
                   </tr>
                 ))}
