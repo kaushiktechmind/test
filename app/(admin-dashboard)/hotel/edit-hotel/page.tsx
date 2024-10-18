@@ -13,7 +13,7 @@ import Accordion from "@/components/Accordion";
 import SelectUI from "@/components/SelectUI";
 import { propertyAmenities } from "@/public/data/addpropertyAmenities";
 import CheckboxCustom from "@/components/Checkbox";
-const QuillEditor = dynamic(() => import('../../../../components/QuillEditor'), { ssr: false });
+// const QuillEditor = dynamic(() => import('../../../../components/QuillEditor'), { ssr: false });
 import React, { useState } from "react";
 
 
@@ -116,7 +116,7 @@ const Page = () => {
 
                 
                 <p className="mt-6 mb-4 text-xl font-medium">Description :</p>
-                <QuillEditor onChange={setDescription} value={description} />
+                {/* <QuillEditor onChange={setDescription} value={description} /> */}
                   <p className="mt-3 mb-4 text-xl font-medium">
                   Hotel Rating :
                 </p>
