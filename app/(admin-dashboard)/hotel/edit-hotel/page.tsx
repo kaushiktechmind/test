@@ -6,13 +6,14 @@ import {
   InformationCircleIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import dynamic from 'next/dynamic';
 import Footer from "@/components/vendor-dashboard/Vendor.Footer";
 import CustomRangeSlider from "@/components/RangeSlider";
 import Accordion from "@/components/Accordion";
 import SelectUI from "@/components/SelectUI";
 import { propertyAmenities } from "@/public/data/addpropertyAmenities";
 import CheckboxCustom from "@/components/Checkbox";
-import QuillEditor from "@/components/QuillEditor";
+const QuillEditor = dynamic(() => import('../../../../components/QuillEditor'), { ssr: false });
 import React, { useState } from "react";
 
 
@@ -36,7 +37,7 @@ const Page = () => {
                 className={`${
                   open ? "rounded-t-2xl" : "rounded-2xl"
                 } flex justify-between items-center p-4 md:p-6 lg:p-8 duration-500 bg-white`}>
-                <h3 className="h3">Hotel Content </h3>
+                <h3 className="h3">Hotel Content</h3>
                 <ChevronDownIcon
                   className={`w-5 h-5 sm:w-6 sm:h-6 duration-300 ${
                     open ? "rotate-180" : ""

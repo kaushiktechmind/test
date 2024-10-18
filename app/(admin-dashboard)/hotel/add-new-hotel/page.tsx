@@ -6,13 +6,14 @@ import {
   InformationCircleIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import dynamic from 'next/dynamic';
 import Footer from "@/components/vendor-dashboard/Vendor.Footer";
 import CustomRangeSlider from "@/components/RangeSlider";
 import Accordion from "@/components/Accordion";
 import SelectUI from "@/components/SelectUI";
 import { propertyAmenities } from "@/public/data/addpropertyAmenities";
 import CheckboxCustom from "@/components/Checkbox";
-import QuillEditor from "@/components/QuillEditor";
+const QuillEditor = dynamic(() => import('../../../../components/QuillEditor'), { ssr: false });
 import React, { useState } from "react";
 
 
@@ -23,9 +24,15 @@ const Page = () => {
     <div className="bg-[var(--bg-2)]">
       <div className="flex items-center justify-between flex-wrap px-3 py-5 md:p-[30px] gap-5 lg:p-[60px] bg-[var(--dark)]">
         <h2 className="h2 text-white">Add New Hotel</h2>
-        <Link href="/hotel/all-hotels" className="btn-primary">
-          <EyeIcon className="w-5 h-5" /> View All Hotel
-        </Link>
+        <div className="flex space-x-2"> {/* Use flex and space-x-2 for horizontal spacing */}
+          <Link href="/hotel/manage-room" className="btn-primary">
+            <EyeIcon className="w-5 h-5" /> Manage Room
+          </Link>
+          <Link href="/hotel/all-hotels" className="btn-primary">
+            <EyeIcon className="w-5 h-5" /> View All Hotel
+          </Link>
+        </div>
+        
       </div>
       {/* statisticts */}
       <section className="grid z-[1] grid-cols-12 gap-4 mb-6 lg:gap-6 px-3 md:px-6 bg-[var(--bg-2)] relative after:absolute after:bg-[var(--dark)] after:w-full after:h-[60px] after:top-0 after:left-0 after:z-[-1] pb-10 xxl:pb-0">
@@ -33,52 +40,50 @@ const Page = () => {
           <Accordion
             buttonContent={(open) => (
               <div
-                className={`${
-                  open ? "rounded-t-2xl" : "rounded-2xl"
-                } flex justify-between items-center p-4 md:p-6 lg:p-8 duration-500 bg-white`}>
+                className={`${open ? "rounded-t-2xl" : "rounded-2xl"
+                  } flex justify-between items-center p-4 md:p-6 lg:p-8 duration-500 bg-white`}>
                 <h3 className="h3">Hotel Content </h3>
                 <ChevronDownIcon
-                  className={`w-5 h-5 sm:w-6 sm:h-6 duration-300 ${
-                    open ? "rotate-180" : ""
-                  }`}
+                  className={`w-5 h-5 sm:w-6 sm:h-6 duration-300 ${open ? "rotate-180" : ""
+                    }`}
                 />
               </div>
             )}
             initialOpen={true}>
-              
+
             <div className="px-4 md:px-6 lg:px-8 pb-4 md:pb-6 lg:pb-8 bg-white rounded-b-2xl">
               <div className="border-t pt-4">
-              <p className="mt-6 mb-4 text-xl font-medium">Property ID :</p>
-              <input
-                type="text"
-                className="w-full border py-2 px-3 lg:px-4 focus:outline-none rounded-md text-base"
-                placeholder="Enter ID"
-              />
-              <p className="mt-6 mb-4 text-xl font-medium">Type:</p>
-<div className="flex space-x-4">
-  <div className="flex items-center">
-    <input
-      type="radio"
-      id="hotel"
-      name="accommodation"
-      value="hotel"
-      className="mr-2"
-    />
-    <label htmlFor="hotel" className="text-base">Hotel</label>
-  </div>
-  <div className="flex items-center">
-    <input
-      type="radio"
-      id="homestay"
-      name="accommodation"
-      value="homestay"
-      className="mr-2"
-    />
-    <label htmlFor="homestay" className="text-base">Homestay</label>
-  </div>
-</div>
+                <p className="mt-6 mb-4 text-xl font-medium">Property ID :</p>
+                <input
+                  type="text"
+                  className="w-full border py-2 px-3 lg:px-4 focus:outline-none rounded-md text-base"
+                  placeholder="Enter ID"
+                />
+                <p className="mt-6 mb-4 text-xl font-medium">Type:</p>
+                <div className="flex space-x-4">
+                  <div className="flex items-center">
+                    <input
+                      type="radio"
+                      id="hotel"
+                      name="accommodation"
+                      value="hotel"
+                      className="mr-2"
+                    />
+                    <label htmlFor="hotel" className="text-base">Hotel</label>
+                  </div>
+                  <div className="flex items-center">
+                    <input
+                      type="radio"
+                      id="homestay"
+                      name="accommodation"
+                      value="homestay"
+                      className="mr-2"
+                    />
+                    <label htmlFor="homestay" className="text-base">Homestay</label>
+                  </div>
+                </div>
 
-                
+
                 <p className="mt-6 mb-4 text-xl font-medium">Name:</p>
                 <input
                   type="text"
@@ -87,36 +92,36 @@ const Page = () => {
                 />
                 <p className="mt-6 mb-4 text-xl font-medium">Starting Price:</p>
                 <CustomRangeSlider />
-               
 
-<p className="mt-6 mb-4 text-xl font-medium">People</p>
-<div className="flex space-x-4">
-  <div className="w-full flex flex-col">
-    <label htmlFor="adults" className="text-base">Max Adults:</label>
-    <SelectUI
-      options={[{ name: "1" }, { name: "2" }, { name: "3" }, { name: "4" }, { name: "5" }, { name: "6" }, { name: "7" }, { name: "8" }, { name: "9" }]}
-    />
-  </div>
-  <div className="w-full flex flex-col">
-    <label htmlFor="children" className="text-base">Max Children:</label>
-    <SelectUI 
-            options={[{ name: "1" }, { name: "2" }, { name: "3" }, { name: "4" }, { name: "5" }, { name: "6" }, { name: "7" }, { name: "8" }, { name: "9" }]}
 
-    />
-  </div>
-  <div className="w-full flex flex-col">
-    <label htmlFor="infants" className="text-base">Max Infants:</label>
-    <SelectUI
-           options={[{ name: "1" }, { name: "2" }, { name: "3" }, { name: "4" }, { name: "5" }, { name: "6" }, { name: "7" }, { name: "8" }, { name: "9" }]}
+                <p className="mt-6 mb-4 text-xl font-medium">People</p>
+                <div className="flex space-x-4">
+                  <div className="w-full flex flex-col">
+                    <label htmlFor="adults" className="text-base">Max Adults:</label>
+                    <SelectUI
+                      options={[{ name: "1" }, { name: "2" }, { name: "3" }, { name: "4" }, { name: "5" }, { name: "6" }, { name: "7" }, { name: "8" }, { name: "9" }]}
+                    />
+                  </div>
+                  <div className="w-full flex flex-col">
+                    <label htmlFor="children" className="text-base">Max Children:</label>
+                    <SelectUI
+                      options={[{ name: "1" }, { name: "2" }, { name: "3" }, { name: "4" }, { name: "5" }, { name: "6" }, { name: "7" }, { name: "8" }, { name: "9" }]}
 
-    />
-  </div>
-</div>
+                    />
+                  </div>
+                  <div className="w-full flex flex-col">
+                    <label htmlFor="infants" className="text-base">Max Infants:</label>
+                    <SelectUI
+                      options={[{ name: "1" }, { name: "2" }, { name: "3" }, { name: "4" }, { name: "5" }, { name: "6" }, { name: "7" }, { name: "8" }, { name: "9" }]}
 
-                
+                    />
+                  </div>
+                </div>
+
+
                 <p className="mt-6 mb-4 text-xl font-medium">Description :</p>
                 <QuillEditor onChange={setDescription} value={description} />
-                  <p className="mt-3 mb-4 text-xl font-medium">
+                <p className="mt-3 mb-4 text-xl font-medium">
                   Hotel Rating :
                 </p>
                 <SelectUI
@@ -128,35 +133,33 @@ const Page = () => {
                     { name: "5" },
                   ]}
                 />
-                  
+
                 {/* <p className="mt-6 mb-4 text-xl font-medium">Tagline :</p>
-                <input
-                  type="text"
-                  className="w-full border p-2 focus:outline-none rounded-md  text-base"
-                  placeholder="Your tag line"
-                /> */}
+                  <input
+                    type="text"
+                    className="w-full border p-2 focus:outline-none rounded-md  text-base"
+                    placeholder="Your tag line"
+                  /> */}
                 {/* <p className="mt-6 mb-4 text-xl font-medium"> Tag </p>
-                <SelectUI
-                  options={[
-                    { name: "One" },
-                    { name: "Two" },
-                    { name: "Three" },
-                  ]}
-                /> */}
+                  <SelectUI
+                    options={[
+                      { name: "One" },
+                      { name: "Two" },
+                      { name: "Three" },
+                    ]}
+                  /> */}
               </div>
             </div>
           </Accordion>
           <Accordion
             buttonContent={(open) => (
               <div
-                className={`${
-                  open ? "rounded-t-2xl" : "rounded-2xl"
-                } flex justify-between items-center p-4 md:p-6 lg:p-8 mt-6 duration-500 bg-white`}>
+                className={`${open ? "rounded-t-2xl" : "rounded-2xl"
+                  } flex justify-between items-center p-4 md:p-6 lg:p-8 mt-6 duration-500 bg-white`}>
                 <h3 className="h3">Hotel  Details </h3>
                 <ChevronDownIcon
-                  className={`w-5 h-5 sm:w-6 sm:h-6 duration-300 ${
-                    open ? "rotate-180" : ""
-                  }`}
+                  className={`w-5 h-5 sm:w-6 sm:h-6 duration-300 ${open ? "rotate-180" : ""
+                    }`}
                 />
               </div>
             )}
@@ -171,9 +174,9 @@ const Page = () => {
                 options={[{ name: "1" }, { name: "2" }, { name: "3" }]}
               />
               {/* <p className="mt-6 mb-4 text-xl font-medium">Garages :</p>
-              <SelectUI
-                options={[{ name: "1" }, { name: "2" }, { name: "3" }]}
-              /> */}
+                <SelectUI
+                  options={[{ name: "1" }, { name: "2" }, { name: "3" }]}
+                /> */}
               <p className="mt-6 mb-4 text-xl font-medium">Person :</p>
               <SelectUI
                 options={[
@@ -193,19 +196,19 @@ const Page = () => {
                 className="w-full border py-2 px-3 lg:px-4 focus:outline-none rounded-md text-base"
                 placeholder="0"
               />
-            
+
               {/* <p className="mt-6 mb-4 text-xl font-medium">Type :</p>
-              <input
-                type="text"
-                className="w-full border py-2 px-3 lg:px-4 focus:outline-none rounded-md text-base"
-                placeholder="Enter type"
-              /> */}
+                <input
+                  type="text"
+                  className="w-full border py-2 px-3 lg:px-4 focus:outline-none rounded-md text-base"
+                  placeholder="Enter type"
+                /> */}
               {/* <p className="mt-6 mb-4 text-xl font-medium">Area :</p>
-              <input
-                type="text"
-                className="w-full border py-2 px-3 lg:px-4 focus:outline-none rounded-md text-base"
-                placeholder="Enter area"
-              /> */}
+                <input
+                  type="text"
+                  className="w-full border py-2 px-3 lg:px-4 focus:outline-none rounded-md text-base"
+                  placeholder="Enter area"
+                /> */}
               <p className="mt-6 mb-4 text-xl font-medium">Number of Beds :</p>
               <input
                 type="text"
@@ -219,17 +222,17 @@ const Page = () => {
                 placeholder="3"
               />
               {/* <p className="mt-6 mb-4 text-xl font-medium">Dimensions :</p>
-              <input
-                type="text"
-                className="w-full border py-2 px-3 lg:px-4 focus:outline-none rounded-md text-base"
-                placeholder="0"
-              /> */}
+                <input
+                  type="text"
+                  className="w-full border py-2 px-3 lg:px-4 focus:outline-none rounded-md text-base"
+                  placeholder="0"
+                /> */}
               {/* <p className="mt-6 mb-4 text-xl font-medium">Year Build :</p>
-              <input
-                type="text"
-                className="w-full border py-2 px-3 lg:px-4 focus:outline-none rounded-md text-base"
-                placeholder="2023"
-              /> */}
+                <input
+                  type="text"
+                  className="w-full border py-2 px-3 lg:px-4 focus:outline-none rounded-md text-base"
+                  placeholder="2023"
+                /> */}
             </div>
           </Accordion>
         </div>
@@ -240,9 +243,8 @@ const Page = () => {
                 <div className="rounded-2xl flex items-center justify-between">
                   <h3 className="h3">Banner Images and Videos </h3>
                   <ChevronDownIcon
-                    className={`w-5 h-5 sm:w-6 sm:h-6 duration-300 ${
-                      open ? "rotate-180" : ""
-                    }`}
+                    className={`w-5 h-5 sm:w-6 sm:h-6 duration-300 ${open ? "rotate-180" : ""
+                      }`}
                   />
                 </div>
               )}
@@ -310,9 +312,8 @@ const Page = () => {
                 <div className="rounded-2xl flex items-center justify-between">
                   <h3 className="h3">Attributes</h3>
                   <ChevronDownIcon
-                    className={`w-5 h-5 sm:w-6 sm:h-6 duration-300 ${
-                      open ? "rotate-180" : ""
-                    }`}
+                    className={`w-5 h-5 sm:w-6 sm:h-6 duration-300 ${open ? "rotate-180" : ""
+                      }`}
                   />
                 </div>
               )}
@@ -335,9 +336,8 @@ const Page = () => {
                 <div className="rounded-2xl flex justify-between">
                   <h3 className="h3">Contact Information </h3>
                   <ChevronDownIcon
-                    className={`w-5 h-5 sm:w-6 sm:h-6 duration-300 ${
-                      open ? "rotate-180" : ""
-                    }`}
+                    className={`w-5 h-5 sm:w-6 sm:h-6 duration-300 ${open ? "rotate-180" : ""
+                      }`}
                   />
                 </div>
               )}
@@ -382,31 +382,31 @@ const Page = () => {
             </Accordion>
           </div>
 
-<div className="mt-6 mb-6">
-<p className="mt-6 mb-3 text-xl font-medium">Status:</p>
-<div className="flex flex-col gap-2"> {/* Change to flex-col for vertical stacking */}
-  <div className="flex items-center">
-    <input
-      type="radio"
-      id="hotel"
-      name="accommodation"
-      value="hotel"
-      className="mr-2"
-    />
-    <label htmlFor="hotel" className="text-base">Publish</label>
-  </div>
-  <div className="flex items-center">
-    <input
-      type="radio"
-      id="homestay"
-      name="accommodation"
-      value="homestay"
-      className="mr-2"
-    />
-    <label htmlFor="homestay" className="text-base">Draft</label>
-  </div>
-</div>
-</div>
+          <div className="mt-6 mb-6">
+            <p className="mt-6 mb-3 text-xl font-medium">Status:</p>
+            <div className="flex flex-col gap-2"> {/* Change to flex-col for vertical stacking */}
+              <div className="flex items-center">
+                <input
+                  type="radio"
+                  id="hotel"
+                  name="accommodation"
+                  value="hotel"
+                  className="mr-2"
+                />
+                <label htmlFor="hotel" className="text-base">Publish</label>
+              </div>
+              <div className="flex items-center">
+                <input
+                  type="radio"
+                  id="homestay"
+                  name="accommodation"
+                  value="homestay"
+                  className="mr-2"
+                />
+                <label htmlFor="homestay" className="text-base">Draft</label>
+              </div>
+            </div>
+          </div>
 
 
           <Link href="#" className="btn-primary font-semibold">
