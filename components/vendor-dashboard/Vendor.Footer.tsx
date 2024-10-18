@@ -7,9 +7,9 @@ const Footer = () => {
       <span>
         Copyright <span>{new Date().getFullYear()}</span>{" "}
         <Link className="text-primary" href="/">
-          Placewise
+          Andaman Mangroves Holidays
         </Link>{" "}
-        Placewise. Designed By{" "}
+        Designed By{" "}
         <Link href="#" className="text-[var(--secondary-500)]">
           Techmind Scape
         </Link>

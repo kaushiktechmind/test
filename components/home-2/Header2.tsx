@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation"; // Import usePathname for route detection
 import LangDropdown from "../LangDropdown";
-// import NotificationDropdown from "../NotificationDropdown";
 import ProfileDropdown from "../ProfileDropdown";
 import Image from "next/image";
 import logo from "@/public/img/logo.png";
@@ -12,34 +12,50 @@ const Header2 = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  const pathname = usePathname(); // Get current route
+  const isHomePage = pathname === "/"; // Check if the current route is the home page
+
   useEffect(() => {
-    document.addEventListener("scroll", () => {
+    if (!isHomePage) {
+      // Static background color for non-home pages
+      setScrolled(true);
+      return;
+    }
+
+    const handleScroll = () => {
       if (window.scrollY > 100) {
         setScrolled(true);
       } else {
         setScrolled(false);
       }
-    });
-  }, []);
+    };
+
+    // Add scroll listener only for the home page
+    document.addEventListener("scroll", handleScroll);
+
+    return () => {
+      // Clean up the event listener
+      document.removeEventListener("scroll", handleScroll);
+    };
+  }, [isHomePage]);
+
   return (
     <header
-      className={`z-30 hidden lg:block fixed ${
-        scrolled ? "z-50 shadow-md bg-[#091E43]" : "bg-transparent"
-      } duration-300 w-full`}
+      className={`z-30 fixed w-full ${
+        scrolled || !isHomePage ? "z-50 shadow-md bg-[#091E43]" : "bg-transparent"
+      } duration-300`}
     >
       <div className="container flex justify-between items-center relative px-3 py-2 lg:py-0 lg:px-0">
-        <Link href="../home-2" className="hidden lg:block">
+        <Link href="/" className="">
           <Image src={logo} alt="logo" className="h-13 w-40" />
         </Link>
         <div className="lg:order-2 flex gap-2 items-center">
           {/* <LangDropdown /> */}
-          {/* <NotificationDropdown /> */}
-          <Link href="../sign-in" className="btn-primary-lg hidden md:block">
+          <Link href="/sign-in" className="btn-primary-lg hidden md:block">
             Signin{" "}
           </Link>
           {/* <ProfileDropdown /> */}
         </div>
-
         <div className="lg:order-1">
           <button
             onClick={() => setMenuOpen(!menuOpen)}

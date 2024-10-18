@@ -15,8 +15,8 @@ const page = () => {
   return (
     <div className="py-[30px] lg:py-[60px]">
       <div className="container">
-        <div className="grid grid-cols-12 gap-4 lg:gap-6">
-          <div className="col-span-12 lg:col-span-4 order-2 lg:order-1">
+        <div className="grid grid-cols-12 gap-4 lg:gap-6 mt-[100px]">
+          <div className="col-span-12 lg:col-span-4 order-2 lg:order-1 ">
             <div className="py-6 px-8 bg-white rounded-2xl shadow-lg">
               <h4 className="mb-0 text-2xl font-semibold"> Filter </h4>
               <div className="border-t border-dashed my-6"></div>

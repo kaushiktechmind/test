@@ -92,9 +92,11 @@ const Page = () => {
             <table className="w-full whitespace-nowrap">
               <thead>
                 <tr className="text-left bg-[var(--bg-1)] border-b border-dashed">
-                  <th className="py-3 lg:py-4 px-2">Name</th>
                   <th className="py-3 lg:py-4 px-2">Date</th>
+                  <th className="py-3 lg:py-4 px-2">Name</th>
+                  <th className="py-3 lg:py-4 px-2">Invoice</th>
                   <th className="py-3 lg:py-4 px-2">Action</th>
+                  
                 </tr>
               </thead>
               <tbody>
@@ -102,8 +104,9 @@ const Page = () => {
                   <tr
                     key={id}
                     className="border-b border-dashed hover:bg-[var(--bg-1)] duration-300">
-                    <td className="py-3 lg:py-4 px-2">{agent}</td>
                     <td className="py-3 lg:py-4 px-2">{date}</td>
+                    <td className="py-3 lg:py-4 px-2">{agent}</td>
+                    <td className="py-3 lg:py-4 px-2"><i className="fa-solid fa-file-lines"></i></td>
                     <td className="py-3 lg:py-4 px-2 flex gap-2 items-center">
                       <button className="text-primary">
                         <PencilSquareIcon className="w-5 h-5" />

@@ -18,7 +18,7 @@ const Page = () => {
     <div className="bg-[var(--bg-2)]">
       <div className="flex items-center justify-between flex-wrap px-3 py-5 md:p-[30px] gap-5 lg:p-[60px] bg-[var(--dark)]">
         <h2 className="h2 text-white">All Hotels</h2>
-        <Link href="/add-property" className="btn-primary">
+        <Link href="/hotel/add-new-hotel" className="btn-primary">
           <PlusCircleIcon className="w-5 h-5" /> Add New Hotel
         </Link>
       </div>
@@ -90,15 +90,12 @@ const Page = () => {
                         </span>
                       </td>
                       <td className="py-3 lg:py-7 px-2 flex gap-2 items-center">
-                        <button className="text-primary">
+                      <a href="./edit-hotel" className="text-primary">
                           <PencilSquareIcon className="w-5 h-5" />
-                        </button>
+                        </a>
                         <button className="text-[var(--secondary-500)]">
                           <TrashIcon className="w-5 h-5" />
                         </button>
-                        {/* <button>
-                          <EllipsisVerticalIcon className="w-5 h-5" />
-                        </button> */}
                       </td>
                     </tr>
                   )
