@@ -57,7 +57,7 @@ export default function DemoApp() {
       <div className="flex items-center justify-between flex-wrap px-3 py-5 md:p-[30px] gap-5 lg:p-[60px] bg-[var(--dark)]">
         <h2 className="h2 text-white">Availability</h2>
         <Link href="/space/add-new-space" className="btn-primary">
-          <PlusCircleIcon className="w-5 h-5" /> Add New Space
+          <PlusCircleIcon className="w-5 h-5" /> Add New Activity
         </Link>
       </div>
       <div className="relative after:absolute after:bg-[var(--dark)] after:w-full after:h-[60px] after:top-0 after:left-0">

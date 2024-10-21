@@ -20,7 +20,7 @@ const Page = () => {
       <div className="flex items-center justify-between flex-wrap px-3 py-5 md:p-[30px] gap-5 lg:p-[60px] bg-[var(--dark)]">
         <h2 className="h2 text-white">Hotel Attributes</h2>
         <Link href="/add-property" className="btn-primary">
-          <EyeIcon className="w-5 h-5" /> View Al Hotel
+          <EyeIcon className="w-5 h-5" /> View All Hotel
         </Link>
       </div>
       {/* statisticts */}
@@ -80,6 +80,12 @@ const Page = () => {
                 </div>
           
               </div>
+              <div className="mt-[20px]">
+          <Link href="#" className="btn-primary font-semibold">
+            <span className="inline-block"> Add New </span>
+          </Link>
+          </div>
+              {/* <button className="btn-primary">Apply</button> */}
            
             {/* <h5 className="text-base sm:text-lg md:text-xl font-medium pb-4">
               Tagline:
@@ -141,9 +147,9 @@ const Page = () => {
                         alt="user"
                       /></td>
                     <td className="py-3 lg:py-4 px-2 flex gap-2 items-center">
-                      <button className="text-primary">
+                      <Link href="/hotel/edit-hotel-attributes" className="text-primary">
                         <PencilSquareIcon className="w-5 h-5" />
-                      </button>
+                      </Link>
                       <button className="text-[var(--secondary-500)]">
                         <TrashIcon className="w-5 h-5" />
                       </button>

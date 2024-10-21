@@ -13,7 +13,7 @@ import Accordion from "@/components/Accordion";
 import SelectUI from "@/components/SelectUI";
 import { propertyAmenities } from "@/public/data/addpropertyAmenities";
 import CheckboxCustom from "@/components/Checkbox";
-// const QuillEditor = dynamic(() => import('../../../../components/QuillEditor'), { ssr: false });
+const QuillEditor = dynamic(() => import('../../../../components/QuillEditor'), { ssr: false });
 import React, { useState } from "react";
 
 
@@ -116,7 +116,7 @@ const Page = () => {
 
                 
                 <p className="mt-6 mb-4 text-xl font-medium">Description :</p>
-                {/* <QuillEditor onChange={setDescription} value={description} /> */}
+                <QuillEditor onChange={setDescription} value={description} />
                   <p className="mt-3 mb-4 text-xl font-medium">
                   Hotel Rating :
                 </p>
@@ -231,6 +231,39 @@ const Page = () => {
                 className="w-full border py-2 px-3 lg:px-4 focus:outline-none rounded-md text-base"
                 placeholder="2023"
               /> */}
+
+
+<div className="rounded-2xl bg-white border p-4 md:p-6 lg:p-8 mt-4 lg:mt-6">
+                <div className="">
+                  <p className=" mb-3 text-xl font-medium">Status:</p>
+                  <div className="flex flex-col gap-2"> {/* Change to flex-col for vertical stacking */}
+                    <div className="flex items-center">
+                      <input
+                        type="radio"
+                        id="hotel"
+                        name="accommodation"
+                        value="hotel"
+                        className="mr-2"
+                      />
+                      <label htmlFor="hotel" className="text-base">Publish</label>
+                    </div>
+                    <div className="flex items-center">
+                      <input
+                        type="radio"
+                        id="homestay"
+                        name="accommodation"
+                        value="homestay"
+                        className="mr-2"
+                      />
+                      <label htmlFor="homestay" className="text-base">Draft</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Link href="#" className="btn-primary font-semibold mt-6">
+                <span className="inline-block"> Save & Preview </span>
+              </Link>
             </div>
           </Accordion>
         </div>
@@ -383,36 +416,6 @@ const Page = () => {
             </Accordion>
           </div>
 
-<div className="mt-6 mb-6">
-<p className="mt-6 mb-3 text-xl font-medium">Status:</p>
-<div className="flex flex-col gap-2"> {/* Change to flex-col for vertical stacking */}
-  <div className="flex items-center">
-    <input
-      type="radio"
-      id="hotel"
-      name="accommodation"
-      value="hotel"
-      className="mr-2"
-    />
-    <label htmlFor="hotel" className="text-base">Publish</label>
-  </div>
-  <div className="flex items-center">
-    <input
-      type="radio"
-      id="homestay"
-      name="accommodation"
-      value="homestay"
-      className="mr-2"
-    />
-    <label htmlFor="homestay" className="text-base">Draft</label>
-  </div>
-</div>
-</div>
-
-
-          <Link href="#" className="btn-primary font-semibold">
-            <span className="inline-block"> Save & Preview </span>
-          </Link>
         </div>
       </section>
 

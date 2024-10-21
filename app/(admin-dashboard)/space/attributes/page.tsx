@@ -16,9 +16,9 @@ const Page = () => {
   return (
     <div className="bg-[var(--bg-2)]">
       <div className="flex items-center justify-between flex-wrap px-3 py-5 md:p-[30px] gap-5 lg:p-[60px] bg-[var(--dark)]">
-        <h2 className="h2 text-white">Space Attributes</h2>
+        <h2 className="h2 text-white">Activity Attributes</h2>
         <Link href="/space/all-space" className="btn-primary">
-          <EyeIcon className="w-5 h-5" /> View Al Space
+          <EyeIcon className="w-5 h-5" /> View All Activities
         </Link>
       </div>
       {/* statisticts */}
@@ -40,7 +40,7 @@ const Page = () => {
             <label
               htmlFor="name"
               className="py-4 inline-block text-base sm:text-lg lg:text-xl font-medium">
-              Position Order :
+              Upload Icon
             </label>
             <input
               type="text"
@@ -48,18 +48,6 @@ const Page = () => {
               placeholder="Ex: 2"
               className="w-full border py-3 px-3 lg:px-6 rounded-md focus:outline-none focus:border focus:border-primary outline-1"
             />
-            <p className="text-sm py-5">
-              The position will be used to order in the Filter page search. The
-              greater number is priority
-            </p>
-            <h5 className="text-base sm:text-lg md:text-xl font-medium pb-4">
-              Tagline:
-            </h5>
-            <CheckboxCustom label="I agree to the privacy policy" />
-            <h5 className="text-base xm:text-lg md:text-xl font-medium py-4">
-              Tag
-            </h5>
-            <CheckboxCustom label="I agree to the Terms & Conditions" />
             <button type="submit" className="btn-primary mt-5 lg:mt-7">
               Add New
             </button>
@@ -114,9 +102,6 @@ const Page = () => {
                       </button>
                       <button className="text-[var(--secondary-500)]">
                         <TrashIcon className="w-5 h-5" />
-                      </button>
-                      <button>
-                        <EllipsisVerticalIcon className="w-5 h-5" />
                       </button>
                     </td>
                   </tr>

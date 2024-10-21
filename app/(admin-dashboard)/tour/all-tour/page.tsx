@@ -17,9 +17,9 @@ const Page = () => {
   return (
     <div className="bg-[var(--bg-2)]">
       <div className="flex items-center justify-between flex-wrap px-3 py-5 md:p-[30px] gap-5 lg:p-[60px] bg-[var(--dark)]">
-        <h2 className="h2 text-white">All Tour</h2>
+        <h2 className="h2 text-white">All Packages</h2>
         <Link href="/tour/add-new-tour" className="btn-primary">
-          <PlusCircleIcon className="w-5 h-5" /> Add New Tour
+          <PlusCircleIcon className="w-5 h-5" /> Add New Packages
         </Link>
       </div>
 
@@ -90,15 +90,15 @@ const Page = () => {
                         </span>
                       </td>
                       <td className="py-3 lg:py-4 px-2 ">
-                        <button className="text-primary px-1">
+                        {/* <button className="text-primary px-1">
                           <PencilSquareIcon className="w-5 h-5" />
-                        </button>
-                        <button className="text-[var(--secondary-500)] px-1">
-                          <TrashIcon className="w-5 h-5" />
-                        </button>
-                        <button>
+                        </button> */}
+                        <a href="./edit-tour" className="text-primary">
+                          <PencilSquareIcon className="w-5 h-5" />
+                        </a>
+                        {/* <button>
                           <EllipsisVerticalIcon className="w-5 h-5" />
-                        </button>
+                        </button> */}
                       </td>
                     </tr>
                   )

@@ -11,15 +11,19 @@ import CustomRangeSlider from "@/components/RangeSlider";
 import Accordion from "@/components/Accordion";
 import SelectUI from "@/components/SelectUI";
 import CheckboxCustom from "@/components/Checkbox";
-import { touramenities } from "@/public/data/touramenities";
+import { touramenities } from "@/public/data/touramenities"
+import dynamic from 'next/dynamic';
+const QuillEditor = dynamic(() => import('../../../../components/QuillEditor'), { ssr: false });
+import React, { useState } from "react";
 
 const Page = () => {
+  const [description, setDescription] = useState("");
   return (
     <div className="bg-[var(--bg-2)]">
       <div className="flex items-center justify-between flex-wrap px-3 py-5 md:p-[30px] gap-5 lg:p-[60px] bg-[var(--dark)]">
-        <h2 className="h2 text-white">Add New Tour</h2>
+        <h2 className="h2 text-white">Add New Packages</h2>
         <Link href="/tour/all-tour" className="btn-primary">
-          <EyeIcon className="w-5 h-5" /> View All Tour
+          <EyeIcon className="w-5 h-5" /> View All Packages
         </Link>
       </div>
       {/* statisticts */}
@@ -31,7 +35,7 @@ const Page = () => {
                 className={`${
                   open ? "rounded-t-2xl" : "rounded-2xl"
                 } flex justify-between items-center p-4 md:p-6 lg:p-8 duration-500 bg-white`}>
-                <h3 className="h3">Tour Content </h3>
+                <h3 className="h3">Package Content </h3>
                 <ChevronDownIcon
                   className={`w-5 h-5 sm:w-6 sm:h-6 duration-300 ${
                     open ? "rotate-180" : ""
@@ -48,27 +52,30 @@ const Page = () => {
                   className="w-full border p-2 focus:outline-none rounded-md text-base"
                   placeholder="Write Title"
                 />
-                <p className="mt-6 mb-4 text-xl font-medium">Sale Price:</p>
+                <p className="mt-6 mb-4 text-xl font-medium">Package Price:</p>
                 <CustomRangeSlider />
-                <p className="mt-6 mb-4 text-xl font-medium">Description :</p>
-                <textarea
-                  rows={5}
-                  className="w-full border p-2 focus:outline-none rounded-md "
-                  placeholder="Description.."></textarea>
-                <p className="mt-6 mb-4 text-xl font-medium">Tagline :</p>
+                <p className="mt-6 mb-4 text-xl font-medium">Content :</p>
+                <QuillEditor onChange={setDescription} value={description} />
+
+                <p className="mt-6 mb-4 text-xl font-medium"> Category </p>
+                <SelectUI
+                  options={[
+                    { name: "City Trips" },
+                    { name: "Echo Tourism" },
+                    { name: "Escorted Tour  " },
+                    { name: "Ligula" },
+                  ]}
+                />
+                
+                <p className="mt-6 mb-4 text-xl font-medium">Pickup Point</p>
                 <input
                   type="text"
                   className="w-full border p-2 focus:outline-none rounded-md  text-base"
-                  placeholder="Your tag line"
+                  placeholder=""
                 />
-                <p className="mt-6 mb-4 text-xl font-medium"> Tag </p>
-                <SelectUI
-                  options={[
-                    { name: "One" },
-                    { name: "Two" },
-                    { name: "Three" },
-                  ]}
-                />
+
+                
+                
               </div>
             </div>
           </Accordion>
@@ -78,7 +85,7 @@ const Page = () => {
                 className={`${
                   open ? "rounded-t-2xl" : "rounded-2xl"
                 } flex justify-between items-center p-4 md:p-6 lg:p-8 mt-6 duration-500 bg-white`}>
-                <h3 className="h3">Property Details </h3>
+                <h3 className="h3">Package Details </h3>
                 <ChevronDownIcon
                   className={`w-5 h-5 sm:w-6 sm:h-6 duration-300 ${
                     open ? "rotate-180" : ""
@@ -102,35 +109,20 @@ const Page = () => {
                 className="w-full border py-2 px-3 lg:px-4 focus:outline-none rounded-md text-base"
                 placeholder="00 Hours"
               />
-              <p className="mb-4 mt-6 text-xl font-medium"> Garages : </p>
-              <SelectUI
-                options={[{ name: "1" }, { name: "2" }, { name: "3" }]}
-              />
-              <p className="mt-6 mb-4 text-xl font-medium">Person :</p>
-              <SelectUI
-                options={[
-                  { name: "1" },
-                  { name: "2" },
-                  { name: "3" },
-                  { name: "4" },
-                  { name: "5" },
-                  { name: "6" },
-                  { name: "7" },
-                  { name: "8" },
-                ]}
-              />
-              <p className="mt-6 mb-4 text-xl font-medium">Area :</p>
-              <input
-                type="text"
-                className="w-full border py-2 px-3 lg:px-4 focus:outline-none rounded-md text-base"
-                placeholder="Dubai"
-              />
-              <p className="mt-6 mb-4 text-xl font-medium"> Dimensions :</p>
-              <input
-                type="text"
-                className="w-full border py-2 px-3 lg:px-4 focus:outline-none rounded-md text-base"
-                placeholder="0"
-              />
+             
+             <p className="mt-6 mb-4 text-xl font-medium">Tour Min People</p>
+                <input
+                  type="number"
+                  className="w-full border p-2 focus:outline-none rounded-md  text-base"
+                  placeholder=""
+                />
+                <p className="mt-6 mb-4 text-xl font-medium">Tour Max People</p>
+                <input
+                  type="number"
+                  className="w-full border p-2 focus:outline-none rounded-md  text-base"
+                  placeholder=""
+                />
+            
             </div>
           </Accordion>
         </div>
@@ -182,7 +174,7 @@ const Page = () => {
                     <input type="file" id="dropzone-file" className="hidden" />
                   </label>
                 </div>
-                <p className="mt-6 mb-4 text-xl font-medium">Video Link :</p>
+                <p className="mt-6 mb-4 text-xl font-medium">YouTube Video Link :</p>
                 <input
                   type="text"
                   className="w-full border p-2 focus:outline-none rounded-md text-base"
@@ -196,7 +188,16 @@ const Page = () => {
                       src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2233.5934788396344!2d89.78232001463437!3d23.836268639364576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1688381345276!5m2!1sen!2sbd"></iframe>
                   </div>
                 </div>
-                <p className="mt-6 mb-4 text-xl font-medium">Address :</p>
+                <p className="mt-6 mb-4 text-xl font-medium"> Location </p>
+                <SelectUI
+                  options={[
+                    { name: "India" },
+                    { name: "London" },
+                    { name: "Caneda" },
+                    { name: "USA" },
+                  ]}
+                />
+                <p className="mt-6 mb-4 text-xl font-medium">Full Address :</p>
                 <input
                   type="text"
                   className="w-full border p-2 focus:outline-none rounded-md text-base"
@@ -209,7 +210,7 @@ const Page = () => {
             <Accordion
               buttonContent={(open) => (
                 <div className="rounded-2xl flex items-center justify-between">
-                  <h3 className="h3">Amenities</h3>
+                  <h3 className="h3">Package Attributes</h3>
                   <ChevronDownIcon
                     className={`w-5 h-5 sm:w-6 sm:h-6 duration-300 ${
                       open ? "rotate-180" : ""
@@ -259,12 +260,7 @@ const Page = () => {
                   className="w-full border p-2 focus:outline-none rounded-md text-base"
                   placeholder="Enter Number"
                 />
-                <p className="mt-6 mb-4 text-xl font-medium"> Fax : </p>
-                <input
-                  type="text"
-                  className="w-full border p-2 focus:outline-none rounded-md text-base"
-                  placeholder="Enter Fax number"
-                />
+                
                 <p className="mt-6 mb-4 text-xl font-medium">Email :</p>
                 <input
                   type="text"
@@ -286,15 +282,30 @@ const Page = () => {
             </Accordion>
           </div>
 
-          <div className="py-10">
-            <ul className="flex flex-col gap-4">
-              <li>
-                <CheckboxCustom label=" I agree to the privacy & policy" />
-              </li>
-              <li>
-                <CheckboxCustom label="I agree with all terms & conditions" />
-              </li>
-            </ul>
+          <div className="mt-6 mb-6">
+            <p className="mt-6 mb-3 text-xl font-medium">Status:</p>
+            <div className="flex flex-col gap-2"> {/* Change to flex-col for vertical stacking */}
+              <div className="flex items-center">
+                <input
+                  type="radio"
+                  id="hotel"
+                  name="accommodation"
+                  value="hotel"
+                  className="mr-2"
+                />
+                <label htmlFor="hotel" className="text-base">Publish</label>
+              </div>
+              <div className="flex items-center">
+                <input
+                  type="radio"
+                  id="homestay"
+                  name="accommodation"
+                  value="homestay"
+                  className="mr-2"
+                />
+                <label htmlFor="homestay" className="text-base">Draft</label>
+              </div>
+            </div>
           </div>
 
           <Link href="#" className="btn-primary font-semibold">

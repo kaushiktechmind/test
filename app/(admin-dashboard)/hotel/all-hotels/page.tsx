@@ -90,7 +90,7 @@ const Page = () => {
                         </span>
                       </td>
                       <td className="py-3 lg:py-7 px-2 flex gap-2 items-center">
-                      <a href="./edit-hotel" className="text-primary">
+                        <a href="./edit-hotel" className="text-primary">
                           <PencilSquareIcon className="w-5 h-5" />
                         </a>
                         <button className="text-[var(--secondary-500)]">

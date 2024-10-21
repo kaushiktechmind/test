@@ -17,9 +17,9 @@ const Page = () => {
   return (
     <div className="bg-[var(--bg-2)]">
       <div className="flex items-center justify-between flex-wrap px-3 py-5 md:p-[30px] gap-5 lg:p-[60px] bg-[var(--dark)]">
-        <h2 className="h2 text-white">Tour Categories</h2>
-        <Link href="/add-property" className="btn-primary">
-          <EyeIcon className="w-5 h-5" /> View All Tour
+        <h2 className="h2 text-white">Package Categories</h2>
+        <Link href="./all-tour" className="btn-primary">
+          <EyeIcon className="w-5 h-5" /> View All Packages
         </Link>
       </div>
       {/* statisticts */}
@@ -95,7 +95,7 @@ lg:px-4">
                     </td>
                     
                     <td className="py-3 lg:py-4 px-2">
-                      <a href="./edit-tour" className="text-primary">
+                      <a href="./edit-categories" className="text-primary">
                           <PencilSquareIcon className="w-5 h-5" />
                         </a>
                         <button className="text-[var(--secondary-500)]">

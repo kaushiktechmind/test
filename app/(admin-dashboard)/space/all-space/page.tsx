@@ -17,9 +17,9 @@ const Page = () => {
   return (
     <div className="bg-[var(--bg-2)]">
       <div className="flex items-center justify-between flex-wrap px-3 py-5 md:p-[30px] gap-5 lg:p-[60px] bg-[var(--dark)]">
-        <h2 className="h2 text-white">All Space</h2>
+        <h2 className="h2 text-white">All Activities</h2>
         <Link href="/tour/add-new-tour" className="btn-primary">
-          <PlusCircleIcon className="w-5 h-5" /> Add New Tour
+          <PlusCircleIcon className="w-5 h-5" /> Add New Activities
         </Link>
       </div>
 
@@ -95,9 +95,6 @@ const Page = () => {
                         </button>
                         <button className="text-[var(--secondary-500)]">
                           <TrashIcon className="w-5 h-5" />
-                        </button>
-                        <button>
-                          <EllipsisVerticalIcon className="w-5 h-5" />
                         </button>
                       </td>
                     </tr>

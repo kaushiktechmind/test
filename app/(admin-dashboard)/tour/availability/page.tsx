@@ -60,7 +60,7 @@ export default function DemoApp() {
       <div className="flex items-center justify-between flex-wrap px-3 py-5 md:p-[30px] gap-5 lg:p-[60px] bg-[var(--dark)]">
         <h2 className="h2 text-white">Availability</h2>
         <Link href="/tour/add-new-tour" className="btn-primary">
-          <PlusCircleIcon className="w-5 h-5" /> Add New Tour
+          <PlusCircleIcon className="w-5 h-5" /> Add New Packages
         </Link>
       </div>
       <div className="relative after:absolute after:bg-[var(--dark)] after:w-full after:h-[60px] after:top-0 after:left-0">
@@ -189,6 +189,7 @@ export default function DemoApp() {
                                 className="border py-[10px] px-2 rounded focus:outline-none focus:border-primary focus:border"
                               />
                             </div>
+                            
                             <div className="col-span-2 lg:col-span-1 flex flex-col gap-3">
                               <label
                                 className="text-xl font-medium"
@@ -203,6 +204,35 @@ export default function DemoApp() {
                                 ]}
                               />
                             </div>
+                            
+                            <div className="col-span-2 lg:col-span-1 flex flex-col gap-3">
+                              <label
+                                className="text-xl font-medium"
+                                htmlFor="date-range">
+                                Price :{" "}
+                              </label>
+                              <input
+                                type="text"
+                                placeholder="$75"
+                                className="border py-[10px] px-2 rounded focus:outline-none focus:border-primary focus:border"
+                              />
+                            </div>
+
+                            <div className="col-span-2 lg:col-span-1 flex flex-col gap-3">
+                              <label
+                                className="text-xl font-medium"
+                                htmlFor="date-range">
+                                Infant :{" "}
+                              </label>
+                              <SelectUI
+                                options={[
+                                  { name: "1" },
+                                  { name: "2" },
+                                  { name: "3" },
+                                ]}
+                              />
+                            </div>
+                            
                             <div className="col-span-2 lg:col-span-1 flex flex-col gap-3">
                               <label
                                 className="text-xl font-medium"

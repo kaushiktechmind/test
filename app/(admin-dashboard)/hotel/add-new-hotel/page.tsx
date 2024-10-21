@@ -32,7 +32,7 @@ const Page = () => {
             <EyeIcon className="w-5 h-5" /> View All Hotel
           </Link>
         </div>
-        
+
       </div>
       {/* statisticts */}
       <section className="grid z-[1] grid-cols-12 gap-4 mb-6 lg:gap-6 px-3 md:px-6 bg-[var(--bg-2)] relative after:absolute after:bg-[var(--dark)] after:w-full after:h-[60px] after:top-0 after:left-0 after:z-[-1] pb-10 xxl:pb-0">
@@ -121,7 +121,6 @@ const Page = () => {
 
                 <p className="mt-6 mb-4 text-xl font-medium">Description :</p>
                 <QuillEditor onChange={setDescription} value={description} />
-                {/* <CKEditorComponent /> */}
                 <p className="mt-3 mb-4 text-xl font-medium">
                   Hotel Rating :
                 </p>
@@ -178,19 +177,7 @@ const Page = () => {
                 <SelectUI
                   options={[{ name: "1" }, { name: "2" }, { name: "3" }]}
                 /> */}
-              <p className="mt-6 mb-4 text-xl font-medium">Person :</p>
-              <SelectUI
-                options={[
-                  { name: "1" },
-                  { name: "2" },
-                  { name: "3" },
-                  { name: "4" },
-                  { name: "5" },
-                  { name: "6" },
-                  { name: "7" },
-                  { name: "8" },
-                ]}
-              />
+
               <p className="mt-6 mb-4 text-xl font-medium">Room Size (sq ft) :</p>
               <input
                 type="text"
@@ -222,6 +209,38 @@ const Page = () => {
                 className="w-full border py-2 px-3 lg:px-4 focus:outline-none rounded-md text-base"
                 placeholder="3"
               />
+
+              <div className="rounded-2xl bg-white border p-4 md:p-6 lg:p-8 mt-4 lg:mt-6">
+                <div className="">
+                  <p className=" mb-3 text-xl font-medium">Status:</p>
+                  <div className="flex flex-col gap-2"> {/* Change to flex-col for vertical stacking */}
+                    <div className="flex items-center">
+                      <input
+                        type="radio"
+                        id="hotel"
+                        name="accommodation"
+                        value="hotel"
+                        className="mr-2"
+                      />
+                      <label htmlFor="hotel" className="text-base">Publish</label>
+                    </div>
+                    <div className="flex items-center">
+                      <input
+                        type="radio"
+                        id="homestay"
+                        name="accommodation"
+                        value="homestay"
+                        className="mr-2"
+                      />
+                      <label htmlFor="homestay" className="text-base">Draft</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Link href="#" className="btn-primary font-semibold mt-6">
+                <span className="inline-block"> Save & Preview </span>
+              </Link>
               {/* <p className="mt-6 mb-4 text-xl font-medium">Dimensions :</p>
                 <input
                   type="text"
@@ -299,6 +318,12 @@ const Page = () => {
                   </div>
                 </div>
                 <p className="mt-6 mb-4 text-xl font-medium">Address :</p>
+                <input
+                  type="text"
+                  className="w-full border p-2 focus:outline-none rounded-md text-base"
+                  placeholder="Enter Address"
+                />
+                <p className="mt-6 mb-4 text-xl font-medium">Full Address :</p>
                 <input
                   type="text"
                   className="w-full border p-2 focus:outline-none rounded-md text-base"
@@ -383,36 +408,9 @@ const Page = () => {
             </Accordion>
           </div>
 
-          <div className="mt-6 mb-6">
-            <p className="mt-6 mb-3 text-xl font-medium">Status:</p>
-            <div className="flex flex-col gap-2"> {/* Change to flex-col for vertical stacking */}
-              <div className="flex items-center">
-                <input
-                  type="radio"
-                  id="hotel"
-                  name="accommodation"
-                  value="hotel"
-                  className="mr-2"
-                />
-                <label htmlFor="hotel" className="text-base">Publish</label>
-              </div>
-              <div className="flex items-center">
-                <input
-                  type="radio"
-                  id="homestay"
-                  name="accommodation"
-                  value="homestay"
-                  className="mr-2"
-                />
-                <label htmlFor="homestay" className="text-base">Draft</label>
-              </div>
-            </div>
-          </div>
 
 
-          <Link href="#" className="btn-primary font-semibold">
-            <span className="inline-block"> Save & Preview </span>
-          </Link>
+
         </div>
       </section>
 
