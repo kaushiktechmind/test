@@ -14,7 +14,6 @@ import SelectUI from "@/components/SelectUI";
 import { propertyAmenities } from "@/public/data/addpropertyAmenities";
 import CheckboxCustom from "@/components/Checkbox";
 const QuillEditor = dynamic(() => import('../../../../components/QuillEditor'), { ssr: false });
-// import CKEditorComponent from '../../../../components/CKEditorComponent';
 import React, { useState } from "react";
 
 
