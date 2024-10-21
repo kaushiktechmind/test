@@ -19,15 +19,13 @@ import React, { useState } from "react";
 
 const Page = () => {
   const [description, setDescription] = useState("");
+  
 
   return (
     <div className="bg-[var(--bg-2)]">
       <div className="flex items-center justify-between flex-wrap px-3 py-5 md:p-[30px] gap-5 lg:p-[60px] bg-[var(--dark)]">
         <h2 className="h2 text-white">Add New Hotel</h2>
         <div className="flex space-x-2"> {/* Use flex and space-x-2 for horizontal spacing */}
-          <Link href="/hotel/manage-room" className="btn-primary">
-            <EyeIcon className="w-5 h-5" /> Manage Room
-          </Link>
           <Link href="/hotel/all-hotels" className="btn-primary">
             <EyeIcon className="w-5 h-5" /> View All Hotel
           </Link>
@@ -173,10 +171,6 @@ const Page = () => {
               <SelectUI
                 options={[{ name: "1" }, { name: "2" }, { name: "3" }]}
               />
-              {/* <p className="mt-6 mb-4 text-xl font-medium">Garages :</p>
-                <SelectUI
-                  options={[{ name: "1" }, { name: "2" }, { name: "3" }]}
-                /> */}
 
               <p className="mt-6 mb-4 text-xl font-medium">Room Size (sq ft) :</p>
               <input
@@ -185,18 +179,7 @@ const Page = () => {
                 placeholder="0"
               />
 
-              {/* <p className="mt-6 mb-4 text-xl font-medium">Type :</p>
-                <input
-                  type="text"
-                  className="w-full border py-2 px-3 lg:px-4 focus:outline-none rounded-md text-base"
-                  placeholder="Enter type"
-                /> */}
-              {/* <p className="mt-6 mb-4 text-xl font-medium">Area :</p>
-                <input
-                  type="text"
-                  className="w-full border py-2 px-3 lg:px-4 focus:outline-none rounded-md text-base"
-                  placeholder="Enter area"
-                /> */}
+              
               <p className="mt-6 mb-4 text-xl font-medium">Number of Beds :</p>
               <input
                 type="text"
@@ -210,7 +193,72 @@ const Page = () => {
                 placeholder="3"
               />
 
-              <div className="rounded-2xl bg-white border p-4 md:p-6 lg:p-8 mt-4 lg:mt-6">
+             
+            </div>
+          </Accordion>
+
+          <Accordion
+            buttonContent={(open) => (
+              <div
+                className={`${open ? "rounded-t-2xl" : "rounded-2xl"
+                  } flex justify-between items-center p-4 md:p-6 lg:p-8 mt-6 duration-500 bg-white`}>
+                <h3 className="h3">Hotel Policy </h3>
+                <ChevronDownIcon
+                  className={`w-5 h-5 sm:w-6 sm:h-6 duration-300 ${open ? "rotate-180" : ""
+                    }`}
+                />
+              </div>
+            )}
+            initialOpen={true}>
+            <div className="px-4 md:px-6 lg:px-8 pb-4 md:pb-6 lg:pb-8 bg-white rounded-b-2xl">
+              <SelectUI
+                options={[{ name: "Policy 1" }, { name: "Policy 2" }, { name: "Policy 3" }]}
+              />
+            </div>
+          </Accordion>
+
+          <Accordion
+            buttonContent={(open) => (
+              <div
+                className={`${open ? "rounded-t-2xl" : "rounded-2xl"
+                  } flex justify-between items-center p-4 md:p-6 lg:p-8 mt-6 duration-500 bg-white`}>
+                <h3 className="h3">Hotel FAQ   </h3>
+                <ChevronDownIcon
+                  className={`w-5 h-5 sm:w-6 sm:h-6 duration-300 ${open ? "rotate-180" : ""
+                    }`}
+                />
+              </div>
+            )}
+            initialOpen={true}>
+            <div className="px-4 md:px-6 lg:px-8 pb-4 md:pb-6 lg:pb-8 bg-white rounded-b-2xl">
+              <SelectUI
+                options={[{ name: "FAQ 1" }, { name: "FAQ 2" }, { name: "FAQ 3" }]}
+              />
+            </div>
+          </Accordion>
+
+          <div className="rounded-2xl bg-white border p-4 md:p-6 lg:p-8 mt-4 lg:mt-6">
+            <Accordion
+              buttonContent={(open) => (
+                <div className="rounded-2xl flex items-center justify-between">
+                   
+                </div>
+              )}
+              initialOpen={true}>
+              <div className="pt-6">
+                <p className="text-xl font-medium"> Features : </p>
+                <ul className="columns-1 sm:columns-2 md:columns-3 lg:columns-4">
+                  {propertyAmenities.map((item) => (
+                    <li key={item} className="py-2">
+                      <CheckboxCustom label={item} />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Accordion>
+          </div>
+          
+          <div className="rounded-2xl bg-white border p-4 md:p-6 lg:p-8 mt-4 lg:mt-6">
                 <div className="">
                   <p className=" mb-3 text-xl font-medium">Status:</p>
                   <div className="flex flex-col gap-2"> {/* Change to flex-col for vertical stacking */}
@@ -241,20 +289,6 @@ const Page = () => {
               <Link href="#" className="btn-primary font-semibold mt-6">
                 <span className="inline-block"> Save & Preview </span>
               </Link>
-              {/* <p className="mt-6 mb-4 text-xl font-medium">Dimensions :</p>
-                <input
-                  type="text"
-                  className="w-full border py-2 px-3 lg:px-4 focus:outline-none rounded-md text-base"
-                  placeholder="0"
-                /> */}
-              {/* <p className="mt-6 mb-4 text-xl font-medium">Year Build :</p>
-                <input
-                  type="text"
-                  className="w-full border py-2 px-3 lg:px-4 focus:outline-none rounded-md text-base"
-                  placeholder="2023"
-                /> */}
-            </div>
-          </Accordion>
         </div>
         <div className="col-span-12 lg:col-span-6">
           <div className="rounded-2xl bg-white border p-4 md:p-6 lg:p-8">
@@ -317,7 +351,7 @@ const Page = () => {
                       src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2233.5934788396344!2d89.78232001463437!3d23.836268639364576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1688381345276!5m2!1sen!2sbd"></iframe>
                   </div>
                 </div>
-                <p className="mt-6 mb-4 text-xl font-medium">Address :</p>
+                <p className="mt-6 mb-4 text-xl font-medium">Map Address (Script) :</p>
                 <input
                   type="text"
                   className="w-full border p-2 focus:outline-none rounded-md text-base"
@@ -380,12 +414,6 @@ const Page = () => {
                   type="text"
                   className="w-full border p-2 focus:outline-none rounded-md text-base"
                   placeholder="Enter Number"
-                />
-                <p className="mt-6 mb-4 text-xl font-medium"> Fax : </p>
-                <input
-                  type="text"
-                  className="w-full border p-2 focus:outline-none rounded-md text-base"
-                  placeholder="Enter Fax number"
                 />
                 <p className="mt-6 mb-4 text-xl font-medium">Email :</p>
                 <input

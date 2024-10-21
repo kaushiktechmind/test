@@ -14,7 +14,7 @@ export const adminRecentListings = [
       location: "123 Main St.",
       agent: "Emma Thompson",
       date: "10/06/2023",
-      status: "Pending",
+      status: "Draft",
       review: "4.7",
     },
     {
@@ -23,7 +23,7 @@ export const adminRecentListings = [
       location: "987 Ocean Ave.",
       agent: "Michael Johnson",
       date: "12/06/2023",
-      status: "Rejected",
+      status: "Draft",
       review: "4.3",
     },
     {
@@ -41,7 +41,7 @@ export const adminRecentListings = [
       location: "789 Broadway St.",
       agent: "David Brown",
       date: "20/06/2023",
-      status: "Pending",
+      status: "Draft",
       review: "4.8",
     },
     {
@@ -59,7 +59,7 @@ export const adminRecentListings = [
       location: "555 Summit Ave.",
       agent: "James Wilson",
       date: "24/06/2023",
-      status: "Rejected",
+      status: "Draft",
       review: "4.1",
     },
     {
@@ -68,7 +68,7 @@ export const adminRecentListings = [
       location: "222 Oak St.",
       agent: "Ava Martinez",
       date: "26/06/2023",
-      status: "Pending",
+      status: "Publish",
       review: "4.9",
     },
     {
@@ -86,7 +86,7 @@ export const adminRecentListings = [
       location: "444 Lakeview Dr.",
       agent: "Mia Anderson",
       date: "30/06/2023",
-      status: "Pending",
+      status: "Publish",
       review: "4.4",
     },
   ];

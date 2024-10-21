@@ -6,7 +6,7 @@ interface HeadlessListProps {
   initialValue: string;
 }
 
-const people = [{ name: "Pending" }, { name: "Publish" }, { name: "Rejected" }];
+const people = [{ name: "Publish" }, { name: "Draft" }];
 
 export default function HeadlessList({ initialValue }: HeadlessListProps) {
   const [selected, setSelected] = useState({ name: initialValue });

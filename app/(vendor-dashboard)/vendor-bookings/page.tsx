@@ -66,13 +66,13 @@ const page = () => {
                       <td className={`py-3 px-2`}>
                         <span
                           className={`py-2 px-3 rounded-xl ${
-                            status == "Rejected" &&
+                            status == "Draft" &&
                             "text-[var(--secondary-500)] bg-[#EBFBF2]"
                           } ${
                             status == "Successfull" &&
                             "text-primary bg-[#EBEBFD]"
                           } ${
-                            status == "Pending" && "text-[#9C742B] bg-[#FFF9ED]"
+                            status == "Draft" && "text-[#9C742B] bg-[#FFF9ED]"
                           }`}>
                           {status}
                         </span>

@@ -14,20 +14,19 @@ import { SearchIcon } from "@/public/data/icons";
 import { adminRecentListings } from "@/public/data/adminrecentlisting";
 import Pagination from "@/components/vendor-dashboard/Pagination";
 import Image from "next/image";
-
 const Page = () => {
   return (
     <div className="bg-[var(--bg-2)]">
       <div className="flex items-center justify-between flex-wrap px-3 py-5 md:p-[30px] gap-5 lg:p-[60px] bg-[var(--dark)]">
-        <h2 className="h2 text-white">Manage Room</h2>
-        <Link href="/hotel/room-availability" className="btn-primary">
-          <EyeIcon className="w-5 h-5" /> Room Avilability
+        <h2 className="h2 text-white">Hotel Attributes</h2>
+        <Link href="/add-property" className="btn-primary">
+          <EyeIcon className="w-5 h-5" /> View All Hotel
         </Link>
       </div>
       {/* statisticts */}
       <section className="grid z-[1] grid-cols-12 gap-4 mb-6 lg:gap-6 px-3 md:px-6 bg-[var(--bg-2)] relative after:absolute after:bg-[var(--dark)] after:w-full after:h-[60px] after:top-0 after:left-0 after:z-[-1] pb-10 xxl:pb-0">
         <div className="col-span-12 lg:col-span-6 p-4 md:p-6 lg:p-10 rounded-2xl bg-white">
-          <h3 className="border-b h3 pb-6">Add Rooms</h3>
+          <h3 className="border-b h3 pb-6">Add Attributes</h3>
           <form>
             <label
               htmlFor="name"
@@ -37,7 +36,7 @@ const Page = () => {
             <input
               type="text"
               id="name"
-              placeholder="Room Name"
+              placeholder="Attribute name"
               className="w-full border py-3 px-3 lg:px-6 rounded-md focus:outline-none focus:border focus:border-primary outline-1"
             />
             <label
@@ -61,6 +60,20 @@ const Page = () => {
                       <span className="inline-block py-3 px-6 rounded-full bg-[#354764] text-white mb-10">
                         Select Files
                       </span>
+                      <span className="flex items-center justify-center flex-wrap gap-5">
+                        <span className="flex items-center gap-2">
+                          <InformationCircleIcon className="w-5 h-5" />
+                          <span className="block mb-0 clr-neutral-500">
+                            Maximum allowed file size is 9.00 MB
+                          </span>
+                        </span>
+                        <span className="flex items-center gap-2">
+                          <InformationCircleIcon className="w-5 h-5" />
+                          <span className="block mb-0 clr-neutral-500">
+                            Maximum 10 files are allowed
+                          </span>
+                        </span>
+                      </span>
                     </span>
                     <input type="file" id="dropzone-file" className="hidden" />
                   </label>
@@ -72,6 +85,16 @@ const Page = () => {
             <span className="inline-block"> Add New </span>
           </Link>
           </div>
+              {/* <button className="btn-primary">Apply</button> */}
+           
+            {/* <h5 className="text-base sm:text-lg md:text-xl font-medium pb-4">
+              Tagline:
+            </h5>
+            <CheckboxCustom label="I agree to the privacy policy" />
+            <h5 className="text-base xm:text-lg md:text-xl font-medium py-4">
+              Tag
+            </h5> */}
+            {/* <CheckboxCustom label="I agree to the Terms & Conditions" /> */}
           
           </form>
         </div>
@@ -102,9 +125,9 @@ const Page = () => {
             <table className="w-full whitespace-nowrap">
               <thead>
                 <tr className="text-left bg-[var(--bg-1)] border-b border-dashed">
-                <th className="py-3 lg:py-4 px-2">Name</th>
-                  <th className="py-3 lg:py-4 px-2">Price</th>
-                  <th className="py-3 lg:py-4 px-2">Status</th>
+                  <th className="py-3 lg:py-4 px-2">Date</th>
+                  <th className="py-3 lg:py-4 px-2">Name</th>
+                  <th className="py-3 lg:py-4 px-2">Icon</th>
                   <th className="py-3 lg:py-4 px-2">Action</th>
                   
                 </tr>
@@ -114,8 +137,8 @@ const Page = () => {
                   <tr
                     key={id}
                     className="border-b border-dashed hover:bg-[var(--bg-1)] duration-300">
-                    <td className="py-3 lg:py-4 px-2">{agent}</td>
                     <td className="py-3 lg:py-4 px-2">{date}</td>
+                    <td className="py-3 lg:py-4 px-2">{agent}</td>
                     <td className="py-3 lg:py-4 px-2"><Image
                         width={40}
                         height={50}
@@ -123,7 +146,6 @@ const Page = () => {
                         src={"https://images.unsplash.com/photo-1455587734955-081b22074882?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"}
                         alt="user"
                       /></td>
-
                     <td className="py-3 lg:py-4 px-2 flex gap-2 items-center">
                       <Link href="/hotel/edit-hotel-attributes" className="text-primary">
                         <PencilSquareIcon className="w-5 h-5" />

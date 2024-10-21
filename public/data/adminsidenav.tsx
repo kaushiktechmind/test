@@ -5,11 +5,9 @@ export const sidenavData = [
     icon: <i className="las la-hotel text-2xl"></i>,
     submenus: [
       { url: "/hotel/all-hotels", title: "All Hotels" },
-      { url: "/hotel/add-new-hotel", title: "Add New Hotel" },
       { url: "/hotel/attributes", title: "Attributes" },
-      // { url: "/hotel/room-attributes", title: "Room Attributes" },
-      { url: "/hotel/edit-hotel", title: "Edit Hotel" },
-      { url: "/hotel/manage-room", title: "Mange Room" },
+      { url: "/hotel/hotel-faq", title: "FAQ" },
+      { url: "/hotel/hotel-policy", title: "Hotel Policy" },
     ],
   },
   {
