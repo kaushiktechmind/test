@@ -5,7 +5,17 @@ import { ChevronDownIcon } from "@/public/data/icons";
 
 type OptionType = {
   name: string;
+  
 };
+
+interface SelectOption {
+  name: string; // The name property that SelectUI will use
+}
+
+interface SelectUIProps {
+  options: SelectOption[]; // Array of SelectOption
+}
+
 
 type OptionTypes = {
   options: OptionType[];

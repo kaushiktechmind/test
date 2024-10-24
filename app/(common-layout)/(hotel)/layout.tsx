@@ -174,55 +174,27 @@ export default function RootLayout({
                       </li>
                       <li className="flex-grow">
                         <ul className="flex flex-wrap justify-end justify-content-lg-end justify-content-xl-center gap-4">
-                          <li>
-                            <Link
-                              href="/hotel-listing-grid"
-                              className={`link flex items-center gap-2 clr-neutral-500 hover:text-primary ${
-                                path === "/hotel-listing-grid" && "text-primary"
-                              }`}>
-                              <Squares2X2Icon className="w-5 h-5" />
-                              <span className="inline-block font-medium">
-                                Grid
-                              </span>
-                            </Link>
-                          </li>
-                          {/* <li>
+                          <li className="flex items-center gap-2">
                             <Link
                               href="/hotel-listing"
                               className={`link flex items-center gap-2 clr-neutral-500 hover:text-primary ${
                                 path === "/hotel-listing" && "text-primary"
-                              }`}>
-                              <ListBulletIcon className="w-5 h-5" />
-                              <span className="inline-block font-medium">
-                                List
-                              </span>
+                              }`}
+                            >
+                              <Squares2X2Icon className="w-5 h-5" />
                             </Link>
-                          </li> */}
-                          {/* <li>
                             <Link
-                              href="/hotel-listing-map"
+                              href="/hotel-listing-grid"
                               className={`link flex items-center gap-2 clr-neutral-500 hover:text-primary ${
-                                path === "/hotel-listing-map" && "text-primary"
-                              }`}>
-                              <MapPinIcon className="w-5 h-5" />
-                              <span className="inline-block font-medium">
-                                Map
-                              </span>
+                                path === "/hotel-listing-grid" && "text-primary"
+                              }`}
+                            >
+                              <span className="inline-block font-medium">Grid</span>
                             </Link>
-                          </li> */}
+                          </li>
                         </ul>
                       </li>
-                      {/* <li className="hidden lg:flex items-center">
-                        <p className="mb-0 clr-neutral-500 flex-grow whitespace-nowrap">
-                          Sort By :
-                        </p>
-                        <select className="w-full bg-transparent px-5 py-2 focus:outline-none border-0">
-                          <option>latest</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
-                        </select>
-                      </li> */}
+
                     </ul>
                   </div>
                 </div>

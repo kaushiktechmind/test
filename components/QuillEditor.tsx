@@ -1,7 +1,6 @@
-// components/QuillEditor.tsx
-import React, { useEffect, useRef } from 'react';
-import Quill from 'quill';
-import 'quill/dist/quill.snow.css'; // Import Quill CSS
+import React, { useEffect, useRef } from "react";
+import Quill from "quill";
+import "quill/dist/quill.snow.css"; // Import Quill CSS
 
 interface QuillEditorProps {
   onChange: (content: string) => void;
@@ -14,28 +13,35 @@ const QuillEditor: React.FC<QuillEditorProps> = ({ onChange, value }) => {
 
   useEffect(() => {
     if (editorRef.current === null && quillRef.current) {
+      // Initialize Quill editor
       editorRef.current = new Quill(quillRef.current, {
-        theme: 'snow',
+        theme: "snow",
         modules: {
           toolbar: [
             [{ header: [1, 2, false] }],
-            ['bold', 'italic', 'underline'],
-            ['image', 'code-block'],
-            ['clean'],
+            ["bold", "italic", "underline"],
+            ["image", "code-block"],
+            ["clean"],
           ],
         },
       });
 
-      editorRef.current.on('text-change', () => {
-        const content = editorRef.current?.root.innerHTML || '';
+      // Handle text change
+      editorRef.current.on("text-change", () => {
+        const content = editorRef.current?.root.innerHTML || "";
         onChange(content);
       });
-
-      editorRef.current.root.innerHTML = value; // Set initial value
     }
-  }, [onChange, value]);
+  }, [onChange]);
 
-  return <div ref={quillRef} style={{ height: '200px' }} />;
+  // Update editor content when value prop changes
+  useEffect(() => {
+    if (editorRef.current && value !== editorRef.current.root.innerHTML) {
+      editorRef.current.root.innerHTML = value;
+    }
+  }, [value]);
+
+  return <div ref={quillRef} style={{ height: "200px" }} />;
 };
 
 export default QuillEditor;
